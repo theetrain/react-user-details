@@ -1,17 +1,6 @@
 import { Metadata } from 'next'
 import { PageContent } from './PageContent'
-
-export type UserData = {
-  id: string
-  username: string
-  firstname: string
-  lastname: string
-  email: string
-  avatar: string
-  role: string
-  join_date: string
-  description: string
-}
+import { type UserData } from '@/src/utils'
 
 const stub: UserData[] = [
   {

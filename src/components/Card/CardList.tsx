@@ -1,24 +1,18 @@
 import styles from './Card.module.css'
-import { type Card } from './Card'
+import { UserCard } from './UserCard'
+import { UserData } from '@/src/utils'
 
-type CardListProps<T> = {
-  items: T[]
-  Card: React.ComponentType<T>
+type CardListProps = {
+  items: UserData[]
 } & React.ComponentProps<'div'>
 
-type DefaultCardProps = { id: string } & React.ComponentProps<typeof Card>
-
-export function CardList<T extends DefaultCardProps>({
-  items,
-  Card,
-  ...rest
-}: CardListProps<T>) {
+export function CardList({ items, ...rest }: CardListProps) {
   return (
     <div {...rest}>
       <ul className={styles.list}>
         {items.map((item) => (
           <li key={item.id}>
-            <Card {...item} className={styles.gridCard} />
+            <UserCard item={item} className={styles.gridCard} />
           </li>
         ))}
       </ul>
