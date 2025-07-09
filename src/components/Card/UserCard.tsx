@@ -1,18 +1,31 @@
-import { useId } from 'react'
+'use client'
+
+import { useRef } from 'react'
 import { Card } from './Card'
 import styles from './Card.module.css'
 import { UserData } from '@/src/utils'
+import { Dialog, DialogHandle } from '../Dialog/Dialog'
 
 type UserCardProps = {
   item: UserData
 } & React.ComponentProps<typeof Card>
 
 export function UserCard({
-  item: { id, firstname, lastname, join_date, avatar },
+  item: {
+    id,
+    firstname,
+    lastname,
+    avatar,
+    username,
+    join_date,
+    email,
+    role,
+    description,
+  },
   ...rest
 }: UserCardProps) {
-  const popoverId = useId()
   const name = `${firstname} ${lastname}`.trim()
+  const dialogRef = useRef<DialogHandle>(null)
 
   return (
     <Card {...rest} className={`${rest.className} ${styles.userCard}`} id={id}>
@@ -29,10 +42,14 @@ export function UserCard({
         </div>
         <p>Joined: {join_date}</p>
       </div>
-      <button className="e-button" type="button" popoverTarget={popoverId}>
+      <button
+        className="e-button"
+        type="button"
+        onClick={() => dialogRef.current?.openDialog()}
+      >
         More details <span className="visually-hidden">about {name}</span>
       </button>
-      <div popover="auto" id={popoverId} className={styles.popover}>
+      <Dialog ref={dialogRef}>
         <h2>{name}</h2>
         {avatar && (
           <img
@@ -41,9 +58,17 @@ export function UserCard({
             alt={`Profile of ${name}`}
           />
         )}
-        <p>Joined: {join_date}</p>
-        <p></p>
-      </div>
+        <dl>
+          <dt>Username</dt>
+          <dd>{username}</dd>
+          <dt>Role</dt>
+          <dd>{role}</dd>
+          <dt>Email</dt>
+          <dd>{email}</dd>
+          <dt>Description</dt>
+          <dd>{description}</dd>
+        </dl>
+      </Dialog>
     </Card>
   )
 }

@@ -11,16 +11,6 @@
   border-radius: 8px;
 }
 
-.popover {
-  margin: auto;
-  width: calc(100dvw - 20px);
-  max-width: 600px;
-}
-.popover:popover-open::backdrop {
-  background-color: var(--foreground);
-  opacity: 0.7;
-}
-
 /* Layout for avatar */
 .avatarRow {
   flex-wrap: nowrap;
@@ -31,6 +21,7 @@
 .fullAvatar {
   width: 9rem;
   height: 9rem;
+  margin: 1rem 0;
   border-radius: 8px;
 }
 
