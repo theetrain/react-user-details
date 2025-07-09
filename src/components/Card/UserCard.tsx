@@ -30,7 +30,7 @@ export function UserCard({
         </div>
         <p>Joined: {join_date}</p>
       </div>
-      <button>
+      <button className="e-button" type="button">
         More details <span className="visually-hidden">about {name}</span>
       </button>
     </Card>

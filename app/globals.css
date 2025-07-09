@@ -3,6 +3,9 @@
   --foreground: #171717;
   --graphic: 
   --shadow: rgba(0, 0, 0, 0.1);
+  --cta: #08680F;
+  --cta-hover: #052907;
+  --outline: var(--foreground);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -10,6 +13,8 @@
     --background: #0a0a0a;
     --foreground: #ededed;
     --shadow: rgba(255, 255, 255, 0.1);
+    --cta: #e0f0e1;
+    --cta-hover: #052907;
   }
 }
 
@@ -52,6 +57,23 @@ a {
   background-color: var(--background);
   border: 1px solid var(--foreground);
   box-shadow: 2px 3px 8px 0px var(--shadow);
+}
+
+.e-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: var(--cta);
+  color: var(--background);
+  border: 1px solid var(--background);
+  box-shadow: 2px 3px 8px 0px var(--shadow);
+
+  &:hover {
+    background-color: var(--cta-hover);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--outline);
+    outline-offset: 2px;
+  }
 }
 
 /* Utilities */
