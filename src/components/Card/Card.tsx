@@ -1,7 +1,11 @@
-import styles from './Card.module.scss'
+import styles from './Card.module.css'
 
 type CardProps = React.ComponentProps<'div'>
 
-export function Card({ children }: CardProps) {
-  return <div className={styles.card}>{children}</div>
+export function Card({ children, ...rest }: CardProps) {
+  return (
+    <div {...rest} className={`${styles.card} ${rest.className}`}>
+      {children}
+    </div>
+  )
 }

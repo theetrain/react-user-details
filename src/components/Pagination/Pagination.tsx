@@ -1,3 +1,5 @@
+import styles from './Pagination.module.css'
+
 type PaginationProps = {
   currentPage: number
   totalPages: number
@@ -14,7 +16,11 @@ export function Pagination({
   const nextDisabled = currentPage >= totalPages
 
   return (
-    <nav aria-label="Directory pagination" {...navAttributes}>
+    <nav
+      className={`${styles.nav} row`}
+      aria-label="Directory pagination"
+      {...navAttributes}
+    >
       {onPageChange ? (
         <>
           <button

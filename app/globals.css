@@ -1,12 +1,15 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --graphic: 
+  --shadow: rgba(0, 0, 0, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --shadow: rgba(255, 255, 255, 0.1);
   }
 }
 
@@ -32,7 +35,6 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -41,10 +43,18 @@ a {
   }
 }
 
-.container {
-  padding: 20px;
+/* Elements, using e (element) prefix */
+.e-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  object-fit: cover;
+  background-color: var(--background);
+  border: 1px solid var(--foreground);
+  box-shadow: 2px 3px 8px 0px var(--shadow);
 }
 
+/* Utilities */
 .visually-hidden {
   position: absolute !important;
   width: 1px !important;
@@ -55,4 +65,36 @@ a {
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border-width: 0 !important;
+}
+
+/* Layout */
+.container {
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.align-end {
+  align-self: flex-end;
+}
+
+.mb-1 {
+  margin-bottom: 2px;
+}
+.mb-2 {
+  margin-bottom: 4px;
+}
+.mb-3 {
+  margin-bottom: 8px;
+}
+.mb-4 {
+  margin-bottom: 16px;
 }

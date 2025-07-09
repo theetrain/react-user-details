@@ -9,6 +9,7 @@ import { UserCard } from '@/src/components/Card/UserCard'
 type BriefUserData = {
   id: string
   name: string
+  avatar: string
   join_date: string
 }
 
@@ -31,17 +32,20 @@ export function PageContent({ data, dataLength }: PageContentProps) {
     .map((user) => ({
       id: user.id,
       name: `${user.firstname} ${user.lastname}`,
+      avatar: user.avatar,
       join_date: user.join_date,
     }))
 
   return (
-    <div className="container">
-      <p>
-        Showing {items.length} of {dataLength} items. Page {page} of{' '}
-        {totalPages}
-      </p>
-      <Pagination currentPage={page} totalPages={totalPages} />
-      <CardList items={items} Card={UserCard}></CardList>
-    </div>
+    <>
+      <div className="container row">
+        <p>
+          Showing {items.length} of {dataLength} items. Page {page} of{' '}
+          {totalPages}
+        </p>
+        <Pagination currentPage={page} totalPages={totalPages} />
+      </div>
+      <CardList className="container" items={items} Card={UserCard}></CardList>
+    </>
   )
 }
