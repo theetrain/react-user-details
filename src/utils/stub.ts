@@ -1,5 +1,18 @@
 import { UserData } from '.'
 
+export const singleItemStub: UserData = {
+  id: '980b82bf-d1af-4e66-ab93-004da059b275',
+  username: 'nberwick0',
+  firstname: 'Norton',
+  lastname: 'Berwick',
+  email: 'nberwick0@liveinternet.ru',
+  avatar: 'https://robohash.org/illumvitaeea.png?size=50x50&set=set1',
+  role: 'Subcontractor',
+  join_date: '5/4/2023',
+  description:
+    'Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.',
+}
+
 export const stub: UserData[] = [
   {
     id: '980b82bf-d1af-4e66-ab93-004da059b275',

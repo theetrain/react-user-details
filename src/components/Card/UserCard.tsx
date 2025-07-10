@@ -70,7 +70,7 @@ export function UserCard({
             alt={`Profile of ${name}`}
           />
         )}
-        <dl>
+        <dl data-testid="description-list">
           <dt>Username</dt>
           <dd>{username}</dd>
           <dt>Join date</dt>
