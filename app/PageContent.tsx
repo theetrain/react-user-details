@@ -5,29 +5,30 @@ import { type UserData } from '@/src/utils'
 type PageContentProps = {
   data: UserData[]
   dataLength: number
+  pagination: {
+    page: number
+    size: number
+  }
 }
 
-export function PageContent({ data, dataLength }: PageContentProps) {
-  // State props
-  const size = 10
-  const page = 1
-
+export function PageContent({
+  data,
+  dataLength,
+  pagination: { page, size },
+}: PageContentProps) {
   // Derived values
-  const index = page - 1
-  const totalPages = Math.ceil(data.length / size)
-
-  const items: UserData[] = data.slice(size * index, size * (index + 1))
+  const totalPages = Math.ceil(dataLength / size)
 
   return (
     <>
       <div className="container row">
         <p>
-          Showing {items.length} of {dataLength} items. Page {page} of{' '}
+          Showing {data.length} of {dataLength} items. Page {page} of{' '}
           {totalPages}
         </p>
         <Pagination currentPage={page} totalPages={totalPages} />
       </div>
-      <CardList className="container" items={items}></CardList>
+      <CardList className="container" items={data}></CardList>
     </>
   )
 }

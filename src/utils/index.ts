@@ -9,3 +9,13 @@ export type UserData = {
   join_date: string
   description: string
 }
+
+export type SearchParams =
+  | {
+      page?: string
+      size?: string
+      totalItems?: string
+    }
+  | {
+      [key: string]: string | undefined
+    }

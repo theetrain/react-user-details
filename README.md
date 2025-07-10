@@ -12,6 +12,24 @@ As well as some non-functional requirements:
 - End to End tests
 - Project structure
 
+- [Pre-development](#pre-development)
+- [Test production build](#test-production-build)
+- [Run tests](#run-tests)
+
+## Pre-development
+
+First-time setup requires environment variables and dependencies.
+
+```bash
+# 1. dependencies
+npm install
+
+# 2. environment variables
+cp .env.example .env
+
+# 3. add DATA_ENDPOINT value provided by team
+```
+
 ## Development
 
 ```bash
