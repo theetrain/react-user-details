@@ -1,10 +1,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --graphic: 
   --shadow: rgba(0, 0, 0, 0.1);
-  --interactive-hover: #b7b7b7;
-  --cta: #08680F;
+  --interactive-hover: #e1e1e1;
+  --cta: #08680f;
   --cta-hover: #052907;
   --outline: var(--foreground);
 }
@@ -48,7 +47,8 @@ a {
   color: inherit;
 }
 
-a:focus-visible, button:focus-visible {
+a:focus-visible,
+button:focus-visible {
   outline: 2px solid var(--outline);
   outline-offset: 2px;
 }
@@ -95,15 +95,16 @@ dd {
 .e-button {
   padding: 8px 16px;
   border-radius: 4px;
-  background-color: var(--cta);
-  color: var(--background);
-  border: 1px solid var(--background);
+  background-color: var(--background);
+  color: var(--cta);
+  border: 1px solid var(--cta);
   box-shadow: 2px 3px 8px 0px var(--shadow);
   font-weight: bold;
   text-align: left;
 
   &:hover {
-    background-color: var(--cta-hover);
+    background-color: var(--interactive-hover);
+    box-shadow: 0px 0px 0px 2px var(--shadow);
   }
 }
 
