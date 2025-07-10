@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styles from './Pagination.module.css'
 
 type PaginationProps = {
@@ -38,12 +39,20 @@ export function Pagination({
         </>
       ) : (
         <>
-          <a href={`?page=${currentPage - 1}`} aria-disabled={prevDisabled}>
+          <Link
+            href={`?page=${currentPage - 1}`}
+            aria-disabled={prevDisabled}
+            tabIndex={prevDisabled ? -1 : undefined}
+          >
             Previous
-          </a>
-          <a href={`?page=${currentPage + 1}`} aria-disabled={nextDisabled}>
+          </Link>
+          <Link
+            href={`?page=${currentPage + 1}`}
+            aria-disabled={nextDisabled}
+            tabIndex={nextDisabled ? -1 : undefined}
+          >
             Next
-          </a>
+          </Link>
         </>
       )}
     </nav>
