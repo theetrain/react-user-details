@@ -10,8 +10,8 @@ export async function getData(cache: UserData[]) {
 
   const endpoint = process.env.DATA_ENDPOINT
 
-  if (process.env.NODE_ENV === 'test') {
-    console.warn('Test environment. Using stub data.')
+  if (process.env.APP_ENV === 'test') {
+    console.warn('Using stub data for testing.')
     return stub
   } else if (!endpoint) {
     console.error('DATA_ENDPOINT is not defined in the environment variables.')

@@ -65,12 +65,16 @@ npm run build
 npm start
 ```
 
-## Run tests
+## Run unit tests
 
 ```bash
 # unit tests
 npm run test:unit
+```
 
+## Run End to End (e2e) tests
+
+```bash
 # end to end tests directly on host machine, runs in GUI mode by default
 npx playwright install # one-time browser install
 npm run build # we use the production build for testing
@@ -80,3 +84,7 @@ npm run test:e2e
 npm run build # we use the production build for testing
 docker compose up
 ```
+
+Note in `playwright.config.js` the `APP_ENV` environment variable is set to
+`'test'` to inform the server to use stub data. If you run playwright directly,
+be sure to include this value in `.env` or `.env.local`.
