@@ -1,4 +1,7 @@
-import Link from 'next/link'
+'use client'
+
+import { Link } from '../Link/Link'
+import { useState } from 'react'
 import styles from './Pagination.module.css'
 
 type PaginationProps = {
@@ -15,6 +18,7 @@ export function Pagination({
 }: PaginationProps) {
   const prevDisabled = currentPage <= 1
   const nextDisabled = currentPage >= totalPages
+  const [loading, setLoading] = useState(false)
 
   return (
     <nav
@@ -43,6 +47,8 @@ export function Pagination({
             href={`?page=${currentPage - 1}`}
             aria-disabled={prevDisabled}
             tabIndex={prevDisabled ? -1 : undefined}
+            beforeNavigate={() => setLoading(true)}
+            afterNavigate={() => setLoading(false)}
           >
             Previous
           </Link>
@@ -50,9 +56,12 @@ export function Pagination({
             href={`?page=${currentPage + 1}`}
             aria-disabled={nextDisabled}
             tabIndex={nextDisabled ? -1 : undefined}
+            beforeNavigate={() => setLoading(true)}
+            afterNavigate={() => setLoading(false)}
           >
             Next
           </Link>
+          {loading && <span aria-live="polite">Loading...</span>}
         </>
       )}
     </nav>
