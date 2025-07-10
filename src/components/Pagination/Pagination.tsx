@@ -61,7 +61,7 @@ export function Pagination({
           >
             Next <span className="visually-hidden">page</span>
           </Link>
-          {loading && <span aria-live="polite">Loading...</span>}
+          <span aria-live="polite">{loading ? 'Loading...' : ''}</span>
         </>
       )}
     </nav>
