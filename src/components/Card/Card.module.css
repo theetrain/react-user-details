@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 16px;
-  background-color: #f9f9f9;
+  background-color: var(--layer-1-bg);
   border-radius: 8px;
 }
 
