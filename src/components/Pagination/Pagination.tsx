@@ -32,13 +32,13 @@ export function Pagination({
             aria-disabled={prevDisabled}
             onClick={() => onPageChange(currentPage - 1)}
           >
-            Previous
+            Previous <span className="visually-hidden">page</span>
           </button>
           <button
             aria-disabled={nextDisabled}
             onClick={() => onPageChange(currentPage - 1)}
           >
-            Next
+            Next <span className="visually-hidden">page</span>
           </button>
         </>
       ) : (
@@ -50,7 +50,7 @@ export function Pagination({
             beforeNavigate={() => setLoading(true)}
             afterNavigate={() => setLoading(false)}
           >
-            Previous
+            Previous <span className="visually-hidden">page</span>
           </Link>
           <Link
             href={`?page=${currentPage + 1}`}
@@ -59,7 +59,7 @@ export function Pagination({
             beforeNavigate={() => setLoading(true)}
             afterNavigate={() => setLoading(false)}
           >
-            Next
+            Next <span className="visually-hidden">page</span>
           </Link>
           {loading && <span aria-live="polite">Loading...</span>}
         </>

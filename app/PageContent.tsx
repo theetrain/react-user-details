@@ -23,8 +23,10 @@ export function PageContent({
     <>
       <div className="container row">
         <p>
-          Showing {data.length} of {dataLength} items. Page {page} of{' '}
-          {totalPages}
+          Showing {data.length} of {dataLength} items.{' '}
+          <span aria-live="polite" aria-atomic="true">
+            Page {page} of {totalPages}
+          </span>
         </p>
         <Pagination currentPage={page} totalPages={totalPages} />
       </div>

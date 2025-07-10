@@ -40,7 +40,12 @@ export function UserCard({
             />
           )}
         </div>
-        <p>Joined: {join_date}</p>
+        <p>
+          Join date:{' '}
+          <time dateTime={new Date(join_date).toISOString().slice(0, 10)}>
+            {join_date}
+          </time>
+        </p>
       </div>
       <button
         className="e-button"
@@ -68,6 +73,12 @@ export function UserCard({
         <dl>
           <dt>Username</dt>
           <dd>{username}</dd>
+          <dt>Join date</dt>
+          <dd>
+            <time dateTime={new Date(join_date).toISOString().slice(0, 10)}>
+              {join_date}
+            </time>
+          </dd>
           <dt>Role</dt>
           <dd>{role}</dd>
           <dt>Email</dt>
