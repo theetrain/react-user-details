@@ -1,7 +1,8 @@
 import { Metadata } from 'next'
-import { PageContent } from './PageContent'
 import { SearchParams, type UserData } from '@/src/utils'
 import { stub } from '@/src/utils/stub'
+import { Pagination } from '@/src/components/Pagination/Pagination'
+import { CardList } from '@/src/components/Card/CardList'
 
 export const metadata: Metadata = {
   title: 'User Directory',
@@ -48,12 +49,21 @@ export default async function Home({ searchParams }: PageProps) {
   if (size < 1) size = 10
 
   const data = allData.slice(size * (page - 1), size * page)
+  const dataLength = allData.length
+  const totalPages = Math.ceil(dataLength / size)
 
   return (
-    <PageContent
-      data={data}
-      dataLength={allData.length}
-      pagination={{ page, size }}
-    />
+    <>
+      <div className="container row">
+        <p>
+          Showing {data.length} of {dataLength} items.{' '}
+          <span aria-live="polite" aria-atomic="true">
+            Page {page} of {totalPages}
+          </span>
+        </p>
+        <Pagination currentPage={page} totalPages={totalPages} />
+      </div>
+      <CardList className="container" items={data}></CardList>
+    </>
   )
 }
