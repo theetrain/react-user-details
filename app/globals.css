@@ -3,6 +3,7 @@
   --foreground: #171717;
   --graphic: 
   --shadow: rgba(0, 0, 0, 0.1);
+  --interactive-hover: #b7b7b7;
   --cta: #08680F;
   --cta-hover: #052907;
   --outline: var(--foreground);
@@ -13,6 +14,7 @@
     --background: #0a0a0a;
     --foreground: #ededed;
     --shadow: rgba(255, 255, 255, 0.1);
+    --interactive-hover: #3c3c3c;
     --cta: #e0f0e1;
     --cta-hover: #052907;
   }

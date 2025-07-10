@@ -49,7 +49,14 @@ export function UserCard({
       >
         More details <span className="visually-hidden">about {name}</span>
       </button>
-      <Dialog ref={dialogRef}>
+      <Dialog
+        ref={dialogRef}
+        closeLabel={
+          <>
+            Close <span className="visually-hidden">details for {name}</span>
+          </>
+        }
+      >
         <h2>{name}</h2>
         {avatar && (
           <img
