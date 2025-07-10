@@ -12,8 +12,11 @@ As well as some non-functional requirements:
 - End to End tests
 - Project structure
 
+Contents:
+
 - [Pre-development](#pre-development)
-- [Test production build](#test-production-build)
+- [Development](#development)
+- [Run production build](#run-production-build)
 - [Run tests](#run-tests)
 
 ## Pre-development
@@ -49,7 +52,7 @@ This project uses
 to automatically optimize and load [Geist](https://vercel.com/font), a new font
 family for Vercel.
 
-## Test production build
+## Run production build
 
 ```bash
 # one-time step
@@ -68,12 +71,12 @@ npm start
 # unit tests
 npm run test:unit
 
-# end to end tests directly on host machine
+# end to end tests directly on host machine, runs in GUI mode by default
 npx playwright install # one-time browser install
 npm run build # we use the production build for testing
 npm run test:e2e
 
-# end to end tests via Docker
+# end to end tests via Docker, runs tests and then exits by default
 npm run build # we use the production build for testing
 docker compose up
 ```

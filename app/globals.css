@@ -50,6 +50,10 @@ body {
 a {
   color: inherit;
 }
+a[aria-disabled='true'] {
+  text-decoration-style: dashed;
+  cursor: not-allowed;
+}
 
 a:focus-visible,
 button:focus-visible {
