@@ -68,6 +68,12 @@ npm start
 # unit tests
 npm run test:unit
 
-# end to end tests
+# end to end tests directly on host machine
+npx playwright install # one-time browser install
+npm run build # we use the production build for testing
 npm run test:e2e
+
+# end to end tests via Docker
+npm run build # we use the production build for testing
+docker compose up
 ```

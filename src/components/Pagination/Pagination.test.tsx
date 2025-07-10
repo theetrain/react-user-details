@@ -10,7 +10,7 @@ describe('Pagination', () => {
   it('displays page nav links', () => {
     // Mock Link component
     vi.mock('../Link/Link', () => ({
-      Link: ({ children, ...props }: any) => <a {...props}>{children}</a>,
+      Link: ({ children }: { children: React.ReactNode }) => <a>{children}</a>,
     }))
 
     const component = render(<Pagination currentPage={1} totalPages={10} />)

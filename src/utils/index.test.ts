@@ -25,7 +25,7 @@ describe('UserData', () => {
       role: string
       join_date: string
       description: string
-    }>
+    }>()
   })
 })
 
