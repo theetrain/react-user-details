@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 
 test('load page (smoke test)', async ({ page }) => {
-  await page.goto('http://localhost:3000/')
+  await page.goto('/')
 
   await expect(
     page.getByRole('heading', { name: 'User Directory' })
@@ -9,7 +9,7 @@ test('load page (smoke test)', async ({ page }) => {
 })
 
 test('navigate back and forth one page', async ({ page, browserName }) => {
-  await page.goto('http://localhost:3000/')
+  await page.goto('/')
 
   await expect(
     page.getByRole('heading', { name: 'User Directory' })

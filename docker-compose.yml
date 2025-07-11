@@ -7,12 +7,22 @@ services:
     command: npx playwright test
     environment:
       - HOME=/root
+      - CI=true
     tty: true
-    # Uncomment the following lines if you want to run headed (with GUI) tests
-    # environment:
-    #   - DISPLAY
-    #   - PWDEBUG=1
-    # devices:
-    #   - "/dev/dri:/dev/dri"
-    # ports:
-    #   - "9222:9222"
+    ports:
+      - '9323:9323'
+    depends_on:
+      - web
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /srv/app
+    volumes:
+      - ./:/srv/app
+    ports:
+      - '3000:3000'
+    environment:
+      - APP_ENV=test
+    command: npm start

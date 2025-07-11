@@ -84,7 +84,6 @@ npm run build # we use the production build for testing
 npm run test:e2e
 
 # end to end tests via Docker, runs tests and then exits by default
-npm run build # we use the production build for testing
 docker compose up
 ```
 
