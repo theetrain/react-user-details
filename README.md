@@ -14,11 +14,23 @@ As well as some non-functional requirements:
 
 Contents:
 
+- [Project details](#project-details)
 - [Pre-development](#pre-development)
 - [Development](#development)
 - [Run production build](#run-production-build)
 - [Run unit tests](#run-unit-tests)
 - [Run End to End (e2e) tests](#run-end-to-end-e2e-tests)
+
+## Project details
+
+- Uses Next.js for server rendering and routing.
+- Features a 'user directory' card grid with results fetched from a stub during
+  local development, or an endpoint in production mode. Data for up to 10 users
+  are fetched and displayed on a given page, with server-side pagination.
+- Showcases unit testing with Vitest; test files are colocated with components
+  or utilities. React components use testing library with keyboard navigation.
+- Showcases End to End tests with Playwright; a test file in [`/e2e`](/e2e)
+  demonstrates page navigation and content assertions.
 
 ## Pre-development
 
