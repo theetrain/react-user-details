@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test:unit": "vitest",
-    "test:e2e": "playwright test --headed --project=chromium --ui"
+    "test:e2e": "playwright test --headed --ui"
   },
   "dependencies": {
     "next": "15.3.5",

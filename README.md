@@ -17,7 +17,8 @@ Contents:
 - [Pre-development](#pre-development)
 - [Development](#development)
 - [Run production build](#run-production-build)
-- [Run tests](#run-tests)
+- [Run unit tests](#run-unit-tests)
+- [Run End to End (e2e) tests](#run-end-to-end-e2e-tests)
 
 ## Pre-development
 
@@ -30,7 +31,9 @@ npm install
 # 2. environment variables
 cp .env.example .env
 
-# 3. add DATA_ENDPOINT value provided by team
+# 3. add `DATA_ENDPOINT=example.com` to `.env.`
+# replace `example.com` with endpoint value provided by team
+# alternatively, set `APP_ENV=test` to use stub data
 ```
 
 ## Development
