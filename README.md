@@ -89,12 +89,21 @@ npm run test:unit
 
 ## Run End to End (e2e) tests
 
+From host machine:
+
 ```bash
 # end to end tests directly on host machine, runs in GUI mode by default
 npx playwright install # one-time browser install
 npm run build # we use the production build for testing
 npm run test:e2e
 
+# optional: run in UI mode
+npm run test:e2e:ui
+```
+
+From Docker:
+
+```bash
 # end to end tests via Docker, runs tests and then exits by default
 docker compose up
 ```

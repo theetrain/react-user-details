@@ -24,8 +24,8 @@ describe('getData', () => {
     expect(result).toEqual([singleStub])
   })
 
-  it('returns stub data if endpoint is not defined', async () => {
-    delete process.env.DATA_ENDPOINT
+  it('returns stub data in test mode', async () => {
+    process.env.APP_ENV = 'test'
 
     const result = await getData([])
     expect(result).toEqual(stub)

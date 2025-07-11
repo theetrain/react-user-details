@@ -10,10 +10,15 @@ describe('Pagination', () => {
   it('displays page nav links', () => {
     // Mock Link component
     vi.mock('../Link/Link', () => ({
-      Link: ({ children }: { children: React.ReactNode }) => <a>{children}</a>,
+      Link: ({
+        children,
+        ...rest
+      }: { children: React.ReactNode } & React.ComponentProps<'a'>) => (
+        <a {...rest}>{children}</a>
+      ),
     }))
 
-    const component = render(<Pagination currentPage={1} totalPages={10} />)
+    const component = render(<Pagination currentPage={2} totalPages={10} />)
     const prevLink = component.getByRole('link', { name: 'Previous page' })
     const nextLink = component.getByRole('link', { name: 'Next page' })
 
@@ -35,7 +40,7 @@ describe('Pagination', () => {
     const prevLink = component.getByRole('link', { name: 'Previous page' })
     const nextLink = component.getByRole('link', { name: 'Next page' })
 
-    expect(nextLink).toHaveAttribute('aria-disabled', 'true')
     expect(prevLink).toHaveAttribute('href', '?page=4')
+    expect(nextLink).toHaveAttribute('aria-disabled', 'true')
   })
 })
